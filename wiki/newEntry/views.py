@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django import forms
 from django.contrib import messages
 from encyclopedia import util
+from viewEntry import urls
 
 
 # remember to reference class form in the html where it is needed.
@@ -26,7 +27,9 @@ def index(request):
 
 
             else:
-                util.save_entry(newTitle, newTitleDesc)
+                util.save_entry(newTitle, newTitleDesc) #saves entry as .md file
+                filename = "view"+newTitle
+                urls.urlpatterns.append(path(newTitle, views.titleData, name=filename))
                 messages.success(request, "New title has been added successfully.")
                 return render(request, "newEntry/index.html", {"form": newTitleForm})
 

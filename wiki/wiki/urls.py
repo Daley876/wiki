@@ -20,5 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("encyclopedia.urls")),
     path('newEntry/', include("newEntry.urls")),
-    path('titles/', include(("titles.urls")))
+    path('wiki/', include("viewEntry.urls"))
 ]

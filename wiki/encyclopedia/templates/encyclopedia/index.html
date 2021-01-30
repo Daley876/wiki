@@ -9,8 +9,11 @@
 
     <ul>
         {% for entry in entries %}
-            <li>{{ entry }}</li>
+
+            <!-- the syntax for referencing url is app_name:alias_path-->
+            <li><a href='{% url "viewEntry:viewEntries"%}{{ entry }}'>{{ entry | safe}}</a></li>
         {% endfor %}
+
     </ul>
 
 {% endblock %}
