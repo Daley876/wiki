@@ -6,7 +6,7 @@
 
 
         {{ form }}
-        {% if messages %}
+        {% if messages and not method%}
             {% for msg in messages %}
                 {% if msg.tags %}
                     <script><!-- to use alerts then the script tags must be used-->

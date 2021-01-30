@@ -1,9 +1,15 @@
 {% extends "encyclopedia/layout.html" %}
 
+{% block title %}
+{{ entryName }}
+{% endblock %}
 
 {% block body %}
 
+    {% if data %}
 {{ data | safe }}
-
+        {% else %}
+        <h1 style="font-size: 60px; font-family: Arial;">This page does not exist.</h1>>
+{% endif %}
 
 {% endblock %}

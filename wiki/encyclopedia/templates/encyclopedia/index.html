@@ -11,6 +11,8 @@
         {% for entry in entries %}
 
             <!-- the syntax for referencing url is app_name:alias_path-->
+            <!--creating urls is like doing it argument style by referencing the different parts-->
+            <!--the entry variable in the href acts as the input for the string character expected by the viewEntry view-->
             <li><a href='{% url "viewEntry:viewEntries"%}{{ entry }}'>{{ entry | safe}}</a></li>
         {% endfor %}
 
