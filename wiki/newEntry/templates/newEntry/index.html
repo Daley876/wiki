@@ -1,8 +1,23 @@
 {% extends "encyclopedia/layout.html" %}
+
 {% block body %}
     <form action="{% url 'newEntry:index' %}" method="post">
         {% csrf_token  %}
+
+
         {{ form }}
-<input type="submit" />
+        {% if messages %}
+            {% for msg in messages %}
+                {% if msg.tags %}
+                    <script><!-- to use alerts then the script tags must be used-->
+                        alert("{{ msg }}")
+                    </script>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        <input type="submit" />
     </form>
+
+
 {% endblock %}
