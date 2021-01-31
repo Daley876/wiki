@@ -1,0 +1,20 @@
+{% extends 'encyclopedia/index.html' %}
+
+{% block title %}
+    {{ entryName }}
+{% endblock %}
+
+{% block body %}
+    {% if data %}
+        {{ data | safe }}
+    {% else %}
+        <h1>Title was not found. See available pages below..</h1>
+        <ul>
+            {% for entry in entries %}
+                <li><a href='{% url "viewEntry:viewEntries"%}{{ entry }}'>{{ entry | safe}}</a></li>
+            {% endfor %}
+
+        </ul>
+    {% endif %}
+
+{% endblock %}
