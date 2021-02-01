@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django import forms
 from django.contrib import messages
+from django.urls import reverse
 from encyclopedia import util
 from viewEntry import urls
 
@@ -28,8 +29,8 @@ def index(request):
 
             else:
                 util.save_entry(newTitle, newTitleDesc) #saves entry as .md file
-                messages.success(request, "New title has been added successfully.")
-                return render(request, "newEntry/index.html", {"form": newTitleForm})
+                return HttpResponseRedirect(reverse('viewEntry:viewEntries', args=[newTitle]))
+
 
         else:
             return render(request, "newEntry/index.html",

@@ -1,20 +1,27 @@
 {% extends 'encyclopedia/index.html' %}
 
 {% block title %}
-    {{ entryName }}
+   Results
 {% endblock %}
 
 {% block body %}
-    {% if data %}
-        {{ data | safe }}
-    {% else %}
-        <h1>Title was not found. See available pages below..</h1>
+    {% if not found_entries %}
+    <h2>No title matching your criteria was not found. See available pages below..</h2>
         <ul>
             {% for entry in entries %}
                 <li><a href='{% url "viewEntry:viewEntries"%}{{ entry }}'>{{ entry | safe}}</a></li>
             {% endfor %}
 
         </ul>
-    {% endif %}
+        {% elif found_entries%}
+        <h2>Your exact criteria was not found.</h2>
+        <h2>Are the pages below what you are looking for?..</h2>
+        <ul>
+            {% for detail in found_entries %}
+                <li><a href='{% url "viewEntry:viewEntries"%}{{ detail }}'>{{ detail | safe}}</a></li>
+            {% endfor %}
+
+        </ul>
+  {% endif %}
 
 {% endblock %}
