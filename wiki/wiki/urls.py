@@ -21,5 +21,6 @@ urlpatterns = [
     path('', include("encyclopedia.urls")),
     path('newEntry/', include("newEntry.urls")),
     path('wiki/', include("viewEntry.urls")),
+    path('random/', include("randomPage.urls")),
     path('search/', include("search.urls"))
 ]

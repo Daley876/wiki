@@ -19,21 +19,18 @@ def index(request):
         if form.is_valid():
 
             # data entered in form must be cleaned before it is used in code
-            newTitle=form.cleaned_data["newTitle"]
-            newTitleDesc= form.cleaned_data["newTitleDesc"]
+            newTitle = form.cleaned_data["newTitle"]
+            newTitleDesc = form.cleaned_data["newTitleDesc"]
 
             if util.get_entry(newTitle):
                 messages.error(request, "This title already exists.")
                 return render(request, "newEntry/index.html", {"form": form})
 
-
             else:
-                util.save_entry(newTitle, newTitleDesc) #saves entry as .md file
+                util.save_entry(newTitle, newTitleDesc)  # saves entry as .md file
                 return HttpResponseRedirect(reverse('viewEntry:viewEntries', args=[newTitle]))
 
-
         else:
-            return render(request, "newEntry/index.html",
-                          {"form": form})
+            return render(request, "newEntry/index.html", {"form": form})
 
     return render(request, "newEntry/index.html", {"form": newTitleForm})

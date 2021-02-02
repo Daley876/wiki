@@ -7,11 +7,10 @@ import markdown2
 
 # get this template by tping to into url directly
 def titleData(request):
-    return render(request, "viewEntry/index.html"
-                  )
+    return render(request, "viewEntry/index.html")
 
 # same argument name here should be the same from url file
-def titleData(request, entryName):
+def givenTitleData(request, entryName):
         if util.get_entry(entryName):
             titles = markdown2.markdown(util.get_entry(entryName))
             return render(request, "viewEntry/index.html",
