@@ -31,8 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'encyclopedia','newEntry','viewEntry','search','randomPage',
-    'django.contrib.admin',
+    'encyclopedia','newEntry','viewEntry','search','randomPage','editPage',
+    'django.contrib.admin','saveData',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

@@ -8,8 +8,14 @@
 
     {% if data %}
 {{ data | safe }}
+       <br>
+        <a href="{% url "editPage:modify" %}{{ entryName }}">Edit page</a>
+
+
         {% else %}
-        <h1 style="font-size: 60px; font-family: Arial;">This page does not exist.</h1>
+        <h1>This page does not exist.</h1>
 {% endif %}
+
+
 
 {% endblock %}

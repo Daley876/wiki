@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block body %}
+
+    <form action="{% url "saveData:save" %}{{ entryName }}" method="POST">
+        {% csrf_token %}
+        {{ form.entryDetails }}
+        {% if messages and not method%}
+            {% for msg in messages %}
+                {% if msg.tags %}
+                    <script><!-- alerts user if saving fails for whatever reason-->
+                    alert("{{ msg }}")
+                    </script>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+<br>
+        <input type="submit" value="Save changes">
+    </form>
+{% endblock %}

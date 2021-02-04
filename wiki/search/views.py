@@ -1,12 +1,12 @@
-from django.shortcuts import render
 from encyclopedia import util
 from encyclopedia import views
-import viewEntry
 from django import forms
+from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 import markdown2
-import re
+import viewEntry
+import re  # library used to do pattern matching
 
 
 # Create your views here.
@@ -14,7 +14,7 @@ import re
 def searchDataDefault(request):
 # checks to see if form has been submitted
 
-# please not this method of getting data was implemented because a HTML form was used
+# please note this method of getting data was implemented because a HTML form was used
     res = request.POST['q']  # this is how we save data from HTML form
     conv_res = str(res)  # converts data from form into a string variable
 

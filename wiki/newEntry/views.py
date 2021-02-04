@@ -10,7 +10,8 @@ from viewEntry import urls
 # remember to reference class form in the html where it is needed.
 class newTitleForm(forms.Form):
     newTitle = forms.CharField(label="Title Name")
-    newTitleDesc = forms.CharField(label="Title Description")
+    newTitleDesc = forms.CharField(label="Title Description",
+                                   widget=forms.Textarea(attrs={'style': 'resize:none'}))
 
 
 def index(request):

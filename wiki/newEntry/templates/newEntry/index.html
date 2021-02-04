@@ -5,7 +5,7 @@
         {% csrf_token  %}
 
 
-        {{ form }}
+        {{ form }}<br>
         {% if messages and not method%}
             {% for msg in messages %}
                 {% if msg.tags %}

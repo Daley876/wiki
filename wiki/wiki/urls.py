@@ -22,5 +22,7 @@ urlpatterns = [
     path('newEntry/', include("newEntry.urls")),
     path('wiki/', include("viewEntry.urls")),
     path('random/', include("randomPage.urls")),
-    path('search/', include("search.urls"))
+    path('edit/', include("editPage.urls")),
+    path('search/', include("search.urls")),
+    path('save/', include("saveData.urls"))
 ]
